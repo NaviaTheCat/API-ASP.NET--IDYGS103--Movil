@@ -1,0 +1,6 @@
+@IDYGS103_HostAddress = http://localhost:5219
+
+GET {{IDYGS103_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

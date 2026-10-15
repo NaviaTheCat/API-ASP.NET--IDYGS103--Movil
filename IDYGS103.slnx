@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Domain/Domain.csproj" />
+  <Project Path="IDYGS103/IDYGS103.csproj" />
+</Solution>
