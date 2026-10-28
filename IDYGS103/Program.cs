@@ -13,6 +13,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IUsuarioServices, UsuarioService>();
+builder.Services.AddTransient<IRolesServices, RolesServices>();
 
 var app = builder.Build();
 

@@ -15,7 +15,7 @@ namespace IDYGS103.Controllers
         {
             _usuarioServices = usuarioServices;
         }
-
+        // GET: api/Usuarios
         [HttpGet]
         public async Task<IActionResult> GetUsuers()
         {
@@ -23,12 +23,15 @@ namespace IDYGS103.Controllers
             return Ok(response);
         }
 
+        // GET: api/Usuarios/5
         [HttpGet("{id:int}")]
         public async Task<IActionResult> ById(int id)
         {
             var response = await _usuarioServices.ById(id);
             return Ok(response);
         }
+
+        // POST: api/Usuarios
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] UsuarioDto i)
         {
@@ -44,7 +47,27 @@ namespace IDYGS103.Controllers
             var result = await _usuarioServices.Create(usuario1);
             return Ok(result);
         }
-        
+
+
+        // PUT: api/Usuarios/5
+        [HttpPut]
+        [Route("{id:int}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UsuarioDto i)
+        {
+            Usuario usuario1 = new Usuario()
+            {
+                PkUsuario = id,
+                Nombre = i.Nombre,
+                UserName = i.UserName,
+                Password = i.Password,
+                FkRol = i.FkRol
+            };
+
+            var result = await _usuarioServices.Update(id, usuario1);
+            return Ok(result);
+        }
+
+        // DELETE: api/Usuarios/5
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
